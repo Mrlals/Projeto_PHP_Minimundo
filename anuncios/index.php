@@ -1,0 +1,40 @@
+<?php
+    require_once("../cabecalho.php");
+?>
+
+    <h3>Gerenciamento de Anuncios</h3>
+
+    <a href="inserir_anuncios.php" class="btn btn-primary mt-3">Cadastrar Anuncios</a>
+
+    <table class="mt-3 table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                while ($l = $linhas->fetch(PDO::FETCH_ASSOC)){
+            ?>
+            <tr>
+                <td><?= $l['nome'] ?></td>
+                <td><?= $l['tipo'] ?></td>
+                <td>
+                    <a href="alterar_anuncios.php?id=<?= $l['id'] ?>" class="btn btn-warning">
+                        Alterar
+                    </a>
+                    <a href="excluir_anuncios.php?id=<?= $l['id'] ?>" class="btn btn-danger">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+            <?php
+                }
+            ?>
+        </tbody>
+    </table>
+    
+
+<?php
+    require_once("../rodape.html");
