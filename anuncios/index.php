@@ -15,7 +15,11 @@
         </thead>
         <tbody>
             <?php
-                while ($l = $linhas->fetch(PDO::FETCH_ASSOC)){
+                $anuncios = retornarAnuncios();
+                if ($anuncios) {
+                    while ($l = $anuncios->fetch(PDO::FETCH_ASSOC)){
+                
+                    }
             ?>
             <tr>
                 <td><?= $l['nome'] ?></td>

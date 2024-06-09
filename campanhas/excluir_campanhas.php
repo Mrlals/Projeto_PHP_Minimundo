@@ -1,5 +1,19 @@
 <?php
     require_once("../cabecalho.html");
+    session_start();
+    if (isset($_GET['id'])){
+        $id = $_GET['id']; //criando a sessão que irá mostrar os dados do banco em tela
+        $_SESSION ['id'] = $id;
+    }
+    if ($_POST) {
+        $id = $_SESSION['id'];
+        if (excluirCampanhas($_SESSION['id']))
+            header('location: index.php');
+        else
+            echo "Erro ao Excluir o Anuncio!!";
+    }
+    $dados = consultarCampanhasId($id); //receberá todos os dados do id referido
+
 ?>
 
     <h3>Excluir Campanhas</h3>
@@ -24,9 +38,8 @@
         </div>
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn btn-danger">
-                    Excluir
-                </button>
+                <input type="submit" class="btn btn-danger" value="Excluir" name="btnExcluir"> 
+                <label for ="text"> Deseja realmente excluir essa campanha?</label>
             </div>
         </div>
     </form>

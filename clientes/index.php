@@ -16,12 +16,16 @@
         </thead>
         <tbody>
             <?php
-                while ($l = $linhas->fetch(PDO::FETCH_ASSOC)){
+                $clientes = retornarClientes();
+                if ($clientes) {
+                    while ($l = $clientes->fetch(PDO::FETCH_ASSOC)){
+                    
+                    }
             ?>
             <tr>
                 <td><?= $l['nome'] ?></td>
                 <td><?= $l['telefone'] ?></td>
-                <td><?= $l['E-mail'] ?></td>
+                <td><?= $l['email'] ?></td>
                 <td>
                     <a href="alterar_cliente.php?id=<?= $l['id'] ?>" class="btn btn-warning">
                         Alterar

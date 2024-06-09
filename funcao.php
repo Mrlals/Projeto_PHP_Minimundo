@@ -5,38 +5,72 @@
         return $conexao;
     }
 
-    function inserirClientes($nome, $telefone, $email,){
+    function inserirAnuncios($nome, $tipo, ){
         try{ 
-            $sql = "INSERT INTO clientes (nome, telefone, email)VALUES (:nome, :telefone, :email)";
+            $sql = "INSERT INTO clientes (nome, tipo)VALUES (:nome, :tipo)";
             $conexao = conectarBanco();
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(":nome", $nome);
-            $stmt->bindValue(":telefone", $telefone);
-            $stmt->bindValue(":e-mail", $email);
+            $stmt->bindValue(":tipo", $tipo);
             return $stmt->execute();
         } catch (Exception $e){
             return 0;
         }
     }
 
-    function retornarClientes(){
+    function retornarAnuncios(){
         try {
-            $sql = "SELECT p.*, c.nome as nome do cliente FROM clientes c";
+            $sql = "SELECT p.*, c.nome as nome do cliente FROM clientes c
+                    INNER JOIN clientes c ON c.id = c.cliente_id";
             $conexao = conectarBanco();
-            return $conexao->query($sql);
+            // variavel resultado retorna o status da conexão
+            $resultado = $conexao->query($sql);
+            if ($resultado){
+                return $resultado; // conexão ok, então resultado
+            } else {
+                return false; // flaha na consulta
+            }
         } catch (Exception $e) {
-            return 0;
+            return false; //retornando false ao invés de 0, evitando erro na conexão tipo PDO, quando feito p fetch e o retorno do banco for null
         }
     }
 
-    function consultarClianetsId($id){
+    function consultarAnunciosId($id){
         try {
-            $sql = "SELECT * FROM clientes WHERE id = :id";
+            $sql = "SELECT * FROM anuncios WHERE id = :id";
             $conexao = conectarBanco();
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(":id", $id);
             $stmt->execute();
             return $stmt->fetch();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
+    function alterarAnuncios($nome, $tipo, $id)
+    {
+        try {
+            $sql = "UPDATE anuncios SET nome = :nome, tipo = :tipo, where id = :id";
+            $conexao = conectarBanco();
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(":nome", $nome);
+            $stmt->bindValue(":tipo", $tipo);
+            $stmt->bindValue("id" , $id);
+            return $stmt->execute();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
+    function excluirAnuncios($id)
+    {
+        try {
+            $sql = "DELETE FROM anuncios WHERE id = :id";
+            $conexao = conectarBanco();
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue("id" , $id);
+            return $stmt->execute();
         } catch (Exception $e) {
             return 0;
         }
@@ -80,24 +114,52 @@
         }
     }
 
-
-    function inserirAnuncios($nome, $tipo, ){
-        try{ 
-            $sql = "INSERT INTO clientes (nome, tipo)VALUES (:nome, :tipo)";
+    function alterarCampanhas($nome, $descricao, $data_inicio, $id)
+    {
+        try {
+            $sql = "UPDATE campanhas SET nome = :nome, descricao = :descricao, data_inicio = :data_inicio, where id = :id";
             $conexao = conectarBanco();
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(":nome", $nome);
-            $stmt->bindValue(":tipo", $tipo);
+            $stmt->bindValue(":descricao", $descricao);
+            $stmt->bindValue(":data_inicio", $data_inicio);
+            $stmt->bindValue("id" , $id);
+            return $stmt->execute();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
+    function excluirCampanhas($id)
+    {
+        try {
+            $sql = "DELETE FROM campanhas WHERE id = :id";
+            $conexao = conectarBanco();
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue("id" , $id);
+            return $stmt->execute();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
+    function inserirClientes($nome, $telefone, $email,){
+        try{ 
+            $sql = "INSERT INTO clientes (nome, telefone, email)VALUES (:nome, :telefone, :email)";
+            $conexao = conectarBanco();
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(":nome", $nome);
+            $stmt->bindValue(":telefone", $telefone);
+            $stmt->bindValue(":email", $email);
             return $stmt->execute();
         } catch (Exception $e){
             return 0;
         }
     }
 
-    function retornarAnuncios(){
+    function retornarClientes(){
         try {
-            $sql = "SELECT p.*, c.nome as nome do cliente FROM clientes c
-                    INNER JOIN clientes c ON c.id = c.cliente_id";
+            $sql = "SELECT p.*, c.nome as nome do cliente FROM clientes c";
             $conexao = conectarBanco();
             return $conexao->query($sql);
         } catch (Exception $e) {
@@ -105,9 +167,9 @@
         }
     }
 
-    function consultarAnunciosId($id){
+    function consultarClientesId($id){
         try {
-            $sql = "SELECT * FROM anuncios WHERE id = :id";
+            $sql = "SELECT * FROM clientes WHERE id = :id";
             $conexao = conectarBanco();
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(":id", $id);
@@ -118,3 +180,31 @@
         }
     }
 
+    function alterarClientes($nome, $telefone, $email, $id)
+    {
+        try {
+            $sql = "UPDATE clientes SET nome = :nome, telefone = :telefone, email = :email, where id = :id";
+            $conexao = conectarBanco();
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(":nome", $nome);
+            $stmt->bindValue(":telefone", $telefone);
+            $stmt->bindValue(":email", $email);
+            $stmt->bindValue("id" , $id);
+            return $stmt->execute();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
+    function excluirClientes($id)
+    {
+        try {
+            $sql = "DELETE FROM clientes WHERE id = :id";
+            $conexao = conectarBanco();
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue("id" , $id);
+            return $stmt->execute();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }

@@ -3,7 +3,7 @@
     if (isset($_GET['id'])) {
         $id = $_GET['id']; // irá apresentar os dados do banco em tela
         session_start();
-        $SESSION['id'] = $id;
+        $_SESSION['id'] = $id;
     }
 
     if ($_POST) {
@@ -11,7 +11,7 @@
         $tipo = $_POST['tipo'];
         if ($nome != "" && $tipo != ""){
             session_start();
-            if (alterarAnuncio($nome, $tipo, $_SESSION['id']))
+            if (alterarAnuncios($nome, $tipo, $_SESSION['id']))
                 echo "Anuncio alterado com sucesso !!";
             else
                 echo "ERRO ao alterar Anuncio!";
@@ -20,7 +20,7 @@
         }
 
     }
-    $dados = consultarAnuncioId($id); // irá receber todos os dados do id que está no banco
+    $dados = consultarAnunciosId($id); // irá receber todos os dados do id que está no banco
 ?>
 
     <h3>Alterar Anuncios</h3>

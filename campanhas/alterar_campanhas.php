@@ -1,5 +1,28 @@
 <?php
     require_once("../cabecalho.html");
+    if (isset($_GET['id'])) {
+        $id = $_GET['id']; // irá apresentar os dados do banco em tela
+        session_start();
+        $_SESSION['id'] = $id;
+    }
+
+    if ($_POST) {
+        $nome = $_POST['nome'];
+        $descricao = $_POST['descricao'];
+        $data_inicio = $_POST['data_inicio'];
+        if ($nome != "" && $descricao != "" && $data_inicio != ""){
+            session_start();
+            if (alterarCampanhas($nome, $descricao, $data_inicio, $_SESSION['id']))
+                echo "Campanha alterada com sucesso !!";
+            else
+                echo "ERRO ao alterar Campanha!";
+        } else {
+            echo "Preencha todos os campos !!";
+        }
+
+    }
+    $dados = consultarCampanhasId($id); // irá receber todos os dados do id que está no banco
+
 ?>
 
     <h3>Alterar Campanhas</h3>

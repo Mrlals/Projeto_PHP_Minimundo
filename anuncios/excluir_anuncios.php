@@ -7,7 +7,7 @@
     }
     if ($_POST) {
         $id = $_SESSION['id'];
-        if (excluirAnuncio($_SESSION['id']))
+        if (excluirAnuncios($_SESSION['id']))
             header('location: index.php');
         else
             echo "Erro ao Excluir o Anuncio!!";
@@ -16,7 +16,7 @@
 ?>
 
     <h3>Excluir Anuncios</h3>
-    <form>
+    <form action="" method="POST">
         <div class="row">
             <div class="col">
                 <label for="nome" class="form-label">Informe o nome</label>
@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col">
                 <input type="submit" class="btn btn-danger" value="Excluir" name="btnExcluir"> 
-                <label for ="text"> Deseja realmente excluir?</label>
+                <label for ="text"> Deseja realmente excluir esse anuncio?</label>
             </div>
         </div>
     </form>

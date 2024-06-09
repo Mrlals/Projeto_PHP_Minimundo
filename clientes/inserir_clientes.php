@@ -34,10 +34,10 @@
 <?php
     if ($_POST){
         $nome = $_POST['nome'];
-        $descricao = $_POST['telefone'];
-        $valor = $_POST['email'];
+        $telefone = $_POST['telefone'];
+        $email = $_POST['email'];
         if($nome != "" && $telefone != "" && $email != ""){
-            if(inserirClientes($nome,$telefone,$email))
+            if(inserirClientes($nome, $telefone, $email))
                 echo "Registro inserido com sucesso!";
             else
                 echo "Erro ao inserir o registro!";

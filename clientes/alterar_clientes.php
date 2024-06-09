@@ -1,5 +1,28 @@
 <?php
     require_once("../cabecalho.html");
+    if (isset($_GET['id'])) {
+        $id = $_GET['id']; // irá apresentar os dados do banco em tela
+        session_start();
+        $_SESSION['id'] = $id;
+    }
+
+    if ($_POST) {
+        $nome = $_POST['nome'];
+        $telefone = $_POST['telefone'];
+        $email = $_POST['email'];
+        if ($nome != "" && $telefone != "" && $email != ""){
+            session_start();
+            if (alterarClientes($nome, $telefone, $email, $_SESSION['id']))
+                echo "Cliente alterado com sucesso !!";
+            else
+                echo "ERRO ao alterar Cliente!";
+        } else {
+            echo "Preencha todos os campos !!";
+        }
+
+    }
+    $dados = consultarClientesId($id); // irá receber todos os dados do id que está no banco
+
 ?>
 
     <h3>Alterar Clientes</h3>
