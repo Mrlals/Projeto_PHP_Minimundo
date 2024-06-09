@@ -24,7 +24,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn btn-success mt-3">
                     Salvar
                 </button>
             </div>

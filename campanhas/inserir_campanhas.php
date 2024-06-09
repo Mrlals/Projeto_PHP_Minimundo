@@ -39,7 +39,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn btn-success mt-3">
                     Salvar
                 </button>
             </div>
@@ -52,7 +52,7 @@
         $descricao = $_POST['descricao'];
         $data_inicio = $_POST['data_inicio'];
         if($nome != "" && $descricao != "" && $data_inicio != ""){
-            if(inserirCampanhas($nome,$descricao,$data_inicio))
+            if(inserirCampanhas($nome, $descricao, $data_inicio))
                 echo "Registro inserido com sucesso!";
             else
                 echo "Erro ao inserir o registro!";

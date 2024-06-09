@@ -201,3 +201,67 @@
             return 0;
         }
     }
+
+    function inserirRelatorios($data, $metricas){
+        try{ 
+            $sql = "INSERT INTO relatoriosdesempenho (data, metricas)VALUES (:data, :metricas)";
+            $conexao = conectarBanco();
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(":data", $data);
+            $stmt->bindValue(":metricas", $metricas);
+            return $stmt->execute();
+        } catch (Exception $e){
+            return 0;
+        }
+    }
+
+    function retornarRelatorios(){
+        try {
+            $sql = "SELECT * FROM relatoriosdesempenho";
+            $conexao = conectarBanco();
+            return $conexao->query($sql);
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
+    function consultarRelatoriosId($id){
+        try {
+            $sql = "SELECT * FROM relatoriosdesempenho WHERE id = :id";
+            $conexao = conectarBanco();
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(":id", $id);
+            $stmt->execute();
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
+    function alterarRelatorios($data, $metrica, $id)
+    {
+        try {
+            $sql = "UPDATE relatoriosdesempenho SET data = :data, metricas = :metricas, WHERE id = :id";
+            $conexao = conectarBanco();
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(":data", $data);
+            $stmt->bindValue(":metricas", $metrica);
+            $stmt->bindValue(":id" , $id);
+            return $stmt->execute();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
+    function excluirRelatorios($id)
+    {
+        try {
+            $sql = "DELETE FROM relatoriosdesempenho WHERE id = :id";
+            $conexao = conectarBanco();
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(":id" , $id);
+            return $stmt->execute();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }

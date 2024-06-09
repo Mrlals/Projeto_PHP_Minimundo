@@ -1,5 +1,5 @@
 <?php
-    require_once("../cabecalho.html");
+    require_once("../cabecalho.php");
     if (isset($_GET['id'])) {
         $id = $_GET['id']; // irá apresentar os dados do banco em tela
         session_start();
@@ -47,7 +47,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn btn-success mt-3">
                     Salvar
                 </button>
             </div>

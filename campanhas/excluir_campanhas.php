@@ -1,5 +1,5 @@
 <?php
-    require_once("../cabecalho.html");
+    require_once("../cabecalho.php");
     session_start();
     if (isset($_GET['id'])){
         $id = $_GET['id']; //criando a sessão que irá mostrar os dados do banco em tela
@@ -38,7 +38,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <input type="submit" class="btn btn-danger" value="Excluir" name="btnExcluir"> 
+                <input type="submit" class="btn btn-danger mt-3" value="Excluir" name="btnExcluir"> 
                 <label for ="text"> Deseja realmente excluir essa campanha?</label>
             </div>
         </div>

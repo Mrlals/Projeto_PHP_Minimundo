@@ -16,22 +16,25 @@
         </thead>
         <tbody>
             <?php
-                while ($l = $linhas->fetch(PDO::FETCH_ASSOC)){
+                $campanhas = retornarCampanhas();
+                if ($campanhas) {
+                    while ($l = $campanhas->fetch(PDO::FETCH_ASSOC)){
             ?>
             <tr>
                 <td><?= $l['nome'] ?></td>
                 <td><?= $l['descricao'] ?></td>
                 <td><?= $l['data_inicio'] ?></td>
                 <td>
-                    <a href="alterar_campanha.php?id=<?= $l['id'] ?>" class="btn btn-warning">
+                    <a href="alterar_campanhas.php?id=<?= $l['id'] ?>" class="btn btn-warning">
                         Alterar
                     </a>
-                    <a href="excluir_campanha.php?id=<?= $l['id'] ?>" class="btn btn-danger">
+                    <a href="excluir_campanhas.php?id=<?= $l['id'] ?>" class="btn btn-danger">
                         Excluir
                     </a>
                 </td>
             </tr>
             <?php
+                    }
                 }
             ?>
         </tbody>

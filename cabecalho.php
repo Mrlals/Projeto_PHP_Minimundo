@@ -18,6 +18,15 @@
             <li class="nav-item">
               <a class="nav-link" href="/Minimundo_agencia_publicidade/clientes/index.php">Clientes</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Minimundo_agencia_publicidade/campanhas/index.php">Campanhas</a>
+            </li>
+            <li class="nav-item">  
+              <a class="nav-link" href="/Minimundo_agencia_publicidade/anuncios/index.php">Anúncios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Minimundo_agencia_publicidade/relatorios_desempenho/index.php">Relatórios</a>
+            </li>
           </ul>
         </div>
       </div>

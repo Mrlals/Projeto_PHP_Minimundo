@@ -2,24 +2,24 @@
     require_once("../cabecalho.php");
 ?>
 
-    <h3>Inserir Anuncios</h3>
+    <h3>Inserir Relatórios</h3>
     <form action="" method="POST">
         <div class="row">
             <div class="col">
-                <label for="nome" class="form-label">Informe o anuncio</label>
-                <input type="text" class="form-control"     name="nome">
+                <label for="data" class="form-label">Informe a data</label>
+                <input type="text" class="form-control"     name="data">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="tipo" class="form-label">Informe o tipo de anuncio</label>
-                <input type="text" class="form-control"     name="tipo">
+                <label for="metrica" class="form-label">Informe a metrica</label>
+                <input type="text" class="form-control"     name="metrica">
             </div>
         </div>
         <!-- deve-se retornar a listagem de FK relacionada aos anuncios -->
         <div class="row">
             <div class="col">
-                <label for="ccampanha" class="form-label"> Selecione a campanha</label>
+                <label for="campanha" class="form-label"> Selecione a campanha</label>
                 <select class="form-select" name="campanha">
                     <?php
                        $linhas = retornarCampanhas();

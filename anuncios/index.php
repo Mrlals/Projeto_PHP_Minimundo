@@ -19,7 +19,6 @@
                 if ($anuncios) {
                     while ($l = $anuncios->fetch(PDO::FETCH_ASSOC)){
                 
-                    }
             ?>
             <tr>
                 <td><?= $l['nome'] ?></td>
@@ -34,6 +33,7 @@
                 </td>
             </tr>
             <?php
+                    }
                 }
             ?>
         </tbody>

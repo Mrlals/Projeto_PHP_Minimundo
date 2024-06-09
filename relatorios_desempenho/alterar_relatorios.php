@@ -1,8 +1,9 @@
 <?php
     require_once("../cabecalho.php");
+    session_start();
+
     if (isset($_GET['id'])) {
         $id = $_GET['id']; // irá apresentar os dados do banco em tela
-        session_start();
         $_SESSION['id'] = $id;
     }
 
@@ -10,31 +11,30 @@
         $nome = $_POST['nome'];
         $tipo = $_POST['tipo'];
         if ($nome != "" && $tipo != ""){
-            session_start();
-            if (alterarAnuncios($nome, $tipo, $_SESSION['id']))
-                echo "Anuncio alterado com sucesso !!";
+            if (alterarRelatorios($nome, $tipo, $_SESSION['id']))
+                echo "Relatório alterado com sucesso !!";
             else
-                echo "ERRO ao alterar Anuncio!";
+                echo "ERRO ao alterar Relatório!";
         } else {
             echo "Preencha todos os campos !!";
         }
 
     }
-    $dados = consultarAnunciosId($id); // irá receber todos os dados do id que está no banco
+    $dados = consultarRelatoriosId($id); // irá receber todos os dados do id que está no banco
 ?>
 
-    <h3>Alterar Anuncios</h3>
+    <h3>Alterar Relatórios</h3>
     <form action="" method="POST">
         <div class="row">
             <div class="col">
-                <label for="nome" class="form-label">Informe o nome</label>
-                <input type="text" class="form-control"     name="nome">
+                <label for="data" class="form-label">Informe a data</label>
+                <input type="text" class="form-control"     name="data">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="tipo" class="form-label">Informe o tipo de anuncio</label>
-                <input type="text" class="form-control"     name="tipo">
+                <label for="metrica" class="form-label">Informe a métrica</label>
+                <input type="text" class="form-control"     name="metrica">
             </div>
         </div>
         <div class="row">
