@@ -29,6 +29,19 @@
         }
     }
 
+    function consultarClianetsId($id){
+        try {
+            $sql = "SELECT * FROM clientes WHERE id = :id";
+            $conexao = conectarBanco();
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(":id", $id);
+            $stmt->execute();
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
     function inserirCampanhas($nome, $descricao, $data_inicio,){
         try{ 
             $sql = "INSERT INTO campanhas (nome, descricao, data_inicio)VALUES (:nome, :descricao, :data_inicio)";
@@ -54,6 +67,20 @@
         }
     }
 
+    function consultarCampanhasId($id){
+        try {
+            $sql = "SELECT * FROM campanhas WHERE id = :id";
+            $conexao = conectarBanco();
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(":id", $id);
+            $stmt->execute();
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
+
     function inserirAnuncios($nome, $tipo, ){
         try{ 
             $sql = "INSERT INTO clientes (nome, tipo)VALUES (:nome, :tipo)";
@@ -73,6 +100,19 @@
                     INNER JOIN clientes c ON c.id = c.cliente_id";
             $conexao = conectarBanco();
             return $conexao->query($sql);
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
+    function consultarAnunciosId($id){
+        try {
+            $sql = "SELECT * FROM anuncios WHERE id = :id";
+            $conexao = conectarBanco();
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(":id", $id);
+            $stmt->execute();
+            return $stmt->fetch();
         } catch (Exception $e) {
             return 0;
         }
