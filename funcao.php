@@ -20,18 +20,11 @@
 
     function retornarAnuncios(){
         try {
-            $sql = "SELECT p.*, c.nome as nome do cliente FROM clientes c
-                    INNER JOIN clientes c ON c.id = c.cliente_id";
+            $sql = "SELECT * FROM anuncios";
             $conexao = conectarBanco();
-            // variavel resultado retorna o status da conexão
-            $resultado = $conexao->query($sql);
-            if ($resultado){
-                return $resultado; // conexão ok, então resultado
-            } else {
-                return false; // flaha na consulta
-            }
+            return $conexao->query($sql);
         } catch (Exception $e) {
-            return false; //retornando false ao invés de 0, evitando erro na conexão tipo PDO, quando feito p fetch e o retorno do banco for null
+            return 0;
         }
     }
 
@@ -56,7 +49,7 @@
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(":nome", $nome);
             $stmt->bindValue(":tipo", $tipo);
-            $stmt->bindValue("id" , $id);
+            $stmt->bindValue(":id" , $id);
             return $stmt->execute();
         } catch (Exception $e) {
             return 0;
@@ -69,7 +62,7 @@
             $sql = "DELETE FROM anuncios WHERE id = :id";
             $conexao = conectarBanco();
             $stmt = $conexao->prepare($sql);
-            $stmt->bindValue("id" , $id);
+            $stmt->bindValue(":id" , $id);
             return $stmt->execute();
         } catch (Exception $e) {
             return 0;
@@ -117,13 +110,13 @@
     function alterarCampanhas($nome, $descricao, $data_inicio, $id)
     {
         try {
-            $sql = "UPDATE campanhas SET nome = :nome, descricao = :descricao, data_inicio = :data_inicio, where id = :id";
+            $sql = "UPDATE campanhas SET nome = :nome, descricao = :descricao, data_inicio = :data_inicio WHERE id = :id";
             $conexao = conectarBanco();
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(":nome", $nome);
             $stmt->bindValue(":descricao", $descricao);
             $stmt->bindValue(":data_inicio", $data_inicio);
-            $stmt->bindValue("id" , $id);
+            $stmt->bindValue(":id" , $id);
             return $stmt->execute();
         } catch (Exception $e) {
             return 0;
@@ -136,7 +129,7 @@
             $sql = "DELETE FROM campanhas WHERE id = :id";
             $conexao = conectarBanco();
             $stmt = $conexao->prepare($sql);
-            $stmt->bindValue("id" , $id);
+            $stmt->bindValue(":id" , $id);
             return $stmt->execute();
         } catch (Exception $e) {
             return 0;
@@ -159,7 +152,7 @@
 
     function retornarClientes(){
         try {
-            $sql = "SELECT p.*, c.nome as nome do cliente FROM clientes c";
+            $sql = "SELECT * FROM clientes";
             $conexao = conectarBanco();
             return $conexao->query($sql);
         } catch (Exception $e) {
@@ -183,13 +176,13 @@
     function alterarClientes($nome, $telefone, $email, $id)
     {
         try {
-            $sql = "UPDATE clientes SET nome = :nome, telefone = :telefone, email = :email, where id = :id";
+            $sql = "UPDATE clientes SET nome = :nome, telefone = :telefone, email = :email WHERE id = :id";
             $conexao = conectarBanco();
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(":nome", $nome);
             $stmt->bindValue(":telefone", $telefone);
             $stmt->bindValue(":email", $email);
-            $stmt->bindValue("id" , $id);
+            $stmt->bindValue(":id" , $id);
             return $stmt->execute();
         } catch (Exception $e) {
             return 0;
@@ -202,7 +195,7 @@
             $sql = "DELETE FROM clientes WHERE id = :id";
             $conexao = conectarBanco();
             $stmt = $conexao->prepare($sql);
-            $stmt->bindValue("id" , $id);
+            $stmt->bindValue(":id" , $id);
             return $stmt->execute();
         } catch (Exception $e) {
             return 0;

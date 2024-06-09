@@ -1,8 +1,9 @@
 <?php
-    require_once("../cabecalho.html");
+    require_once("../cabecalho.php");
+    session_start();
+
     if (isset($_GET['id'])) {
         $id = $_GET['id']; // irá apresentar os dados do banco em tela
-        session_start();
         $_SESSION['id'] = $id;
     }
 
@@ -11,7 +12,6 @@
         $telefone = $_POST['telefone'];
         $email = $_POST['email'];
         if ($nome != "" && $telefone != "" && $email != ""){
-            session_start();
             if (alterarClientes($nome, $telefone, $email, $_SESSION['id']))
                 echo "Cliente alterado com sucesso !!";
             else
@@ -26,7 +26,7 @@
 ?>
 
     <h3>Alterar Clientes</h3>
-    <form>
+    <form action="" method="POST">
         <div class="row">
             <div class="col">
                 <label for="nome" class="form-label">Informe o nome do cliente</label>
@@ -47,7 +47,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn btn-success mt-3">
                     Salvar
                 </button>
             </div>

@@ -20,23 +20,23 @@
                 if ($clientes) {
                     while ($l = $clientes->fetch(PDO::FETCH_ASSOC)){
                     
-                    }
             ?>
             <tr>
                 <td><?= $l['nome'] ?></td>
                 <td><?= $l['telefone'] ?></td>
                 <td><?= $l['email'] ?></td>
                 <td>
-                    <a href="alterar_cliente.php?id=<?= $l['id'] ?>" class="btn btn-warning">
+                    <a href="alterar_clientes.php?id=<?= $l['id'] ?>" class="btn btn-warning">
                         Alterar
                     </a>
-                    <a href="excluir_cliente.php?id=<?= $l['id'] ?>" class="btn btn-danger">
+                    <a href="excluir_clientes.php?id=<?= $l['id'] ?>" class="btn btn-danger">
                         Excluir
                     </a>
                 </td>
             </tr>
             <?php
-                }
+                    }
+                } 
             ?>
         </tbody>
     </table>
