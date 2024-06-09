@@ -26,8 +26,8 @@
         </div>
         <div class="row">
             <div class="col">
-                <label for="metrica" class="form-label">Informe a métrica</label>
-                <input type="text" class="form-control"     name="metrica">
+                <label for="metricas" class="form-label">Informe a métrica</label>
+                <input type="text" class="form-control"     name="metricas">
             </div>
         </div>
         <div class="row">

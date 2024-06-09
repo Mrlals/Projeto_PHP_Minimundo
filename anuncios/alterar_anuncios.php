@@ -1,8 +1,9 @@
 <?php
     require_once("../cabecalho.php");
+    session_start();
+    
     if (isset($_GET['id'])) {
         $id = $_GET['id']; // irá apresentar os dados do banco em tela
-        session_start();
         $_SESSION['id'] = $id;
     }
 
@@ -10,7 +11,6 @@
         $nome = $_POST['nome'];
         $tipo = $_POST['tipo'];
         if ($nome != "" && $tipo != ""){
-            session_start();
             if (alterarAnuncios($nome, $tipo, $_SESSION['id']))
                 echo "Anuncio alterado com sucesso !!";
             else

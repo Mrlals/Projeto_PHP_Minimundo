@@ -12,8 +12,8 @@
         </div>
         <div class="row">
             <div class="col">
-                <label for="metrica" class="form-label">Informe a metrica</label>
-                <input type="text" class="form-control"     name="metrica">
+                <label for="metricas" class="form-label">Informe a metrica</label>
+                <input type="text" class="form-control"     name="metricas">
             </div>
         </div>
         <!-- deve-se retornar a listagem de FK relacionada aos anuncios -->
@@ -41,10 +41,10 @@
 
 <?php
     if ($_POST){
-        $nome = $_POST['nome'];
-        $tipo = $_POST['tipo'];
-        if($nome != "" && $tipo != ""){
-            if(inserirAnuncios($nome,$tipo))
+        $data = $_POST['data'];
+        $metricas = $_POST['metricas'];
+        if($data != "" && $metricas != ""){
+            if(inserirRelatorios($data, $metricas))
                 echo "Registro inserido com sucesso!";
             else
                 echo "Erro ao inserir o registro!";

@@ -13,29 +13,10 @@
             echo "Erro ao Excluir o cliente!!";
     }
     $dados = consultarClientesId($id); //receberá todos os dados do id referido
-
+    
+    echo "<h3>Excluir Cliente: " . $dados['nome'] . "</h3>"; // Exibe o nome do cliente a ser excluído
 ?>
 
-    <h3>Excluir Clientes</h3>
-    <form action="" method="POST">
-        <div class="row">
-            <div class="col">
-                <label for="nome" class="form-label">Informe o nome</label>
-                <input type="text" class="form-control"     name="nome">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="telefone" class="form-label">Informe o telefone</label>
-                <input type="text" class="form-control"     name="telefone">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="email" class="form-label">Informe o e-mail</label>
-                <input type="text" class="form-control"     name="email">
-            </div>
-        </div>
         <div class="row">
             <div class="col">
                 <input type="submit" class="btn btn-danger mt-3" value="Excluir" name="btnExcluir"> 

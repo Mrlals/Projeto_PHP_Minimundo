@@ -8,10 +8,10 @@
     }
 
     if ($_POST) {
-        $nome = $_POST['nome'];
-        $tipo = $_POST['tipo'];
-        if ($nome != "" && $tipo != ""){
-            if (alterarRelatorios($nome, $tipo, $_SESSION['id']))
+        $data = $_POST['data'];
+        $metricas = $_POST['metricas'];
+        if ($data != "" && $metricas != ""){
+            if (alterarRelatorios($data, $metricas, $_SESSION['id']))
                 echo "Relatório alterado com sucesso !!";
             else
                 echo "ERRO ao alterar Relatório!";
@@ -33,8 +33,8 @@
         </div>
         <div class="row">
             <div class="col">
-                <label for="metrica" class="form-label">Informe a métrica</label>
-                <input type="text" class="form-control"     name="metrica">
+                <label for="metricas" class="form-label">Informe a métrica</label>
+                <input type="text" class="form-control"     name="metricas">
             </div>
         </div>
         <div class="row">

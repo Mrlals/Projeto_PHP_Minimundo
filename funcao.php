@@ -44,7 +44,7 @@
     function alterarAnuncios($nome, $tipo, $id)
     {
         try {
-            $sql = "UPDATE anuncios SET nome = :nome, tipo = :tipo, where id = :id";
+            $sql = "UPDATE anuncios SET nome = :nome, tipo = :tipo WHERE id = :id";
             $conexao = conectarBanco();
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(":nome", $nome);
@@ -241,7 +241,7 @@
     function alterarRelatorios($data, $metrica, $id)
     {
         try {
-            $sql = "UPDATE relatoriosdesempenho SET data = :data, metricas = :metricas, WHERE id = :id";
+            $sql = "UPDATE relatoriosdesempenho SET data = :data, metricas = :metricas WHERE id = :id";
             $conexao = conectarBanco();
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(":data", $data);
