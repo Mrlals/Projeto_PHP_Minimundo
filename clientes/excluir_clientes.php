@@ -16,24 +16,24 @@
     
 ?>
 
-    <h3>Excluir Clientes</h3>
+    <h3>Excluir o Cliente Selecionado</h3>
     <form action="" method="POST">
         <div class="row">
             <div class="col">
-                <label for="nome" class="form-label">Informe o nome</label>
-                <input type="text" class="form-control"     name="nome">
+                <label for="nome" class="form-label">Nome do cliente</label>
+                <input type="text" class="form-control"     name="nome" value="<?= ($dados['nome']) ?>" readonly>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="telefone" class="form-label">Informe o telefone</label>
-                <input type="text" class="form-control"     name="telefone">
+                <label for="telefone" class="form-label">Telefone do cliente</label>
+                <input type="text" class="form-control"     name="telefone" value="<?= ($dados['telefone']) ?>" readonly>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="email" class="form-label">Informe o e-mail</label>
-                <input type="text" class="form-control"     name="email">
+                <label for="email" class="form-label">E-mail do cliente</label>
+                <input type="text" class="form-control"     name="email" value="<?= ($dados['email']) ?>" readonly>
             </div>
         </div>
         <div class="row">

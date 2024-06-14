@@ -25,24 +25,24 @@
 
 ?>
 
-    <h3>Alterar Clientes</h3>
+    <h3>Alterar o Cliente selecionado</h3>
     <form action="" method="POST">
         <div class="row">
             <div class="col">
-                <label for="nome" class="form-label">Informe o nome do cliente</label>
-                <input type="text" class="form-control"     name="nome">
+                <label for="nome" class="form-label">Informe o novo nome do cliente</label>
+                <input type="text" class="form-control"     name="nome" value="<?= ($dados['nome']) ?>">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="telefone" class="form-label">Informe a telefone</label>
-                <input type="text" class="form-control"     name="telefone">
+                <label for="telefone" class="form-label">Informe o novo telefone</label>
+                <input type="text" class="form-control"     name="telefone" value="<?= ($dados['telefone']) ?>">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="email" class="form-label">Informe o e-mail</label>
-                <input type="text" class="form-control"     name="email">
+                <label for="email" class="form-label">Informe o novo e-mail</label>
+                <input type="text" class="form-control"     name="email" value="<?= ($dados['email']) ?>">
             </div>
         </div>
         <div class="row">
