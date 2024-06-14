@@ -11,6 +11,7 @@
             <tr>
                 <th>Nome</th>
                 <th>Tipo</th>
+                <th>Campanha</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,7 @@
             <tr>
                 <td><?= $l['nome'] ?></td>
                 <td><?= $l['tipo'] ?></td>
+                <td><?= $l['campanha'] ?></td>
                 <td>
                     <a href="alterar_anuncios.php?id=<?= $l['id'] ?>" class="btn btn-warning">
                         Alterar

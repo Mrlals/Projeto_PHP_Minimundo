@@ -20,7 +20,9 @@
 
     function retornarAnuncios(){
         try {
-            $sql = "SELECT * FROM anuncios";
+            $sql = "SELECT anuncios.*, campanhas.nome AS campanha 
+                    FROM anuncios 
+                    LEFT JOIN campanhas ON anuncios.campanha_id = campanhas.id";
             $conexao = conectarBanco();
             return $conexao->query($sql);
         } catch (Exception $e) {

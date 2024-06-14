@@ -2,7 +2,7 @@
     require_once("../cabecalho.php");
 ?>
 
-    <h3>Inserir Anuncios</h3>
+    <h3>Inserir Novo Anúncio</h3>
     <form action="" method="POST">
         <div class="row">
             <div class="col">
