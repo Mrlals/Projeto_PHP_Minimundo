@@ -2,7 +2,7 @@
     require_once("../cabecalho.php");
 ?>
 
-    <h3>Inserir Campanhas</h3>
+    <h3>Inserir Nova Campanha</h3>
     <form action="" method="POST">
         <div class="row">
             <div class="col">
@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col">
                 <label for="data_inicio" class="form-label">Informe a data de início</label>
-                <input type="text" class="form-control"     name="data_inicio">
+                <input type="text" class="form-control"     name="data_inicio" placeholder="2024-01-01">
             </div>
         </div>
 

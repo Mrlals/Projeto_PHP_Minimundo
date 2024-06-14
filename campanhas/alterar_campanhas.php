@@ -25,24 +25,24 @@
 
 ?>
 
-    <h3>Alterar Campanhas</h3>
+    <h3>Alterar a campanha selecionada</h3>
     <form>
         <div class="row">
             <div class="col">
-                <label for="nome" class="form-label">Informe a Campanha</label>
-                <input type="text" class="form-control"     name="nome">
+                <label for="nome" class="form-label">Informe a nova campanha</label>
+                <input type="text" class="form-control"     name="nome" value="<?=($dados['nome']) ?>">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="descricao" class="form-label">Informe a descrição</label>
-                <input type="text" class="form-control"     name="descricao">
+                <label for="descricao" class="form-label">Informe a nova descrição</label>
+                <input type="text" class="form-control"     name="descricao" value="<?=($dados['descricao']) ?>">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="data_inicio" class="form-label">Informe a data de início</label>
-                <input type="text" class="form-control"     name="data_inicio">
+                <label for="data_inicio" class="form-label">Informe a nova data de início</label>
+                <input type="text" class="form-control"     name="data_inicio" value="<?=($dados['data_inicio']) ?>">
             </div>
         </div>
         <div class="row">

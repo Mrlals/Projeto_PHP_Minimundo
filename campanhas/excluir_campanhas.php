@@ -16,24 +16,24 @@
 
 ?>
 
-    <h3>Excluir Campanhas</h3>
+    <h3>Excluir a Campanha selecionada</h3>
     <form>
         <div class="row">
             <div class="col">
-                <label for="nome" class="form-label">Informe o nome</label>
-                <input type="text" class="form-control"     name="nome">
+                <label for="nome" class="form-label">Nome da campanha</label>
+                <input type="text" class="form-control"     name="nome" value="<?= ($dados['nome']) ?>" readonly>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="descricao" class="form-label">Informe a descrição</label>
-                <input type="text" class="form-control"     name="descricao">
+                <label for="descricao" class="form-label">Descrição da campanha</label>
+                <input type="text" class="form-control"     name="descricao" value="<?= ($dados['descricao']) ?>" readonly>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="data_inicio" class="form-label">Informe a data início</label>
-                <input type="text" class="form-control"     name="data_inicio">
+                <label for="data_inicio" class="form-label">Data de início da campanha</label>
+                <input type="text" class="form-control"     name="data_inicio" value="<?= ($dados['data_inicio']) ?>" readonly>
             </div>
         </div>
         <div class="row">

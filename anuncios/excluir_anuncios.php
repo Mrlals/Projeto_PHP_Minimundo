@@ -22,13 +22,13 @@
         <div class="row">
             <div class="col">
                 <label for="nome" class="form-label">Nome do anúncio</label>
-                <input type="text" class="form-control"     name="nome" value="<?= htmlspecialchars($dados['nome']) ?>" readonly>
+                <input type="text" class="form-control"     name="nome" value="<?= ($dados['nome']) ?>" readonly>
             </div>                                                      <!-- Adicionado value recebendo os dados do banco relacionados ao nome, somente leitura -->
         </div>
         <div class="row">
             <div class="col">
                 <label for="tipo" class="form-label">Tipo do anúncio</label>
-                <input type="text" class="form-control"     name="tipo" value="<?= htmlspecialchars($dados['tipo']) ?>" readonly>
+                <input type="text" class="form-control"     name="tipo" value="<?= ($dados['tipo']) ?>" readonly>
             </div>
         </div>
         <!-- deve-se retornar a listagem de FK relacionada aos anuncios -->

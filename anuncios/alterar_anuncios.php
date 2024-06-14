@@ -23,24 +23,24 @@
     $dados = consultarAnunciosId($id); // irá receber todos os dados do id que está no banco
 ?>
 
-    <h3>Alterar O Anuncio</h3>
+    <h3>Alterar o Anúncio</h3>
     <form action="" method="POST">
         <div class="row">
             <div class="col">
-                <label for="nome" class="form-label">Informe o nome</label>
-                <input type="text" class="form-control"     name="nome" value="<?= htmlspecialchars($dados['nome']) ?>">
+                <label for="nome" class="form-label">Informe o novo nome</label>
+                <input type="text" class="form-control"     name="nome" value="<?= ($dados['nome']) ?>">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="tipo" class="form-label">Informe o tipo de anuncio</label>
-                <input type="text" class="form-control"     name="tipo" value="<?= htmlspecialchars($dados['tipo']) ?>">
+                <label for="tipo" class="form-label">Informe o novo tipo de anuncio</label>
+                <input type="text" class="form-control"     name="tipo" value="<?= ($dados['tipo']) ?>">
             </div>
         </div>
         <!-- deve-se retornar a listagem de FK relacionada aos anuncios -->
         <div class="row">
             <div class="col">
-                <label for="campanha" class="form-label"> Selecione a campanha</label>
+                <label for="campanha" class="form-label"> Selecione a nova campanha</label>
                 <select class="form-select" name="campanha">
                     <?php
                        $campanhas = retornarCampanhas(); // busca pelas campanhas disponiveis
