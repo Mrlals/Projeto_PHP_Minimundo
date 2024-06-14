@@ -44,7 +44,7 @@
         $nome = $_POST['nome'];
         $tipo = $_POST['tipo'];
         if($nome != "" && $tipo != ""){
-            if(inserirAnuncios($nome,$tipo))
+            if(inserirAnuncios($nome,$tipo,$campanha_id))
                 echo "Registro inserido com sucesso!";
             else
                 echo "Erro ao inserir o registro!";

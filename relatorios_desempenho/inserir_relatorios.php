@@ -16,20 +16,6 @@
                 <input type="text" class="form-control"     name="metricas">
             </div>
         </div>
-        <!-- deve-se retornar a listagem de FK relacionada aos anuncios -->
-        <div class="row">
-            <div class="col">
-                <label for="campanha" class="form-label"> Selecione a campanha</label>
-                <select class="form-select" name="campanha">
-                    <?php
-                       $linhas = retornarCampanhas();
-                       while($l = $linhas->fetch(PDO::FETCH_ASSOC)){
-                        echo "<option value='{$l['id']}'>{$l['nome']}</option>";
-                       } 
-                    ?>
-                </select>
-            </div>
-        </div>
         <div class="row">
             <div class="col">
                 <button type="submit" class="btn btn-success mt-3">

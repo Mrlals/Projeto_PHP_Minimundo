@@ -5,13 +5,14 @@
         return $conexao;
     }
 
-    function inserirAnuncios($nome, $tipo, ){
+    function inserirAnuncios($nome, $tipo, $campanha_id){
         try{ 
-            $sql = "INSERT INTO clientes (nome, tipo)VALUES (:nome, :tipo)";
+            $sql = "INSERT INTO anuncios (nome, tipo, campanha_id)VALUES (:nome, :tipo, :cammpanha_id)";
             $conexao = conectarBanco();
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(":nome", $nome);
             $stmt->bindValue(":tipo", $tipo);
+            $stmt->bindValue(":campanha_id", $campanha_id);
             return $stmt->execute();
         } catch (Exception $e){
             return 0;
@@ -267,3 +268,4 @@
             return 0;
         }
     }
+    
