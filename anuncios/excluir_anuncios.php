@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col">
                 <label for="campanha" class="form-label">Campanha do anúncio</label>
-                <select class="form-select" name="campanha"  readonly>
+                <select class="form-select" name="campanha"  disabled>
                     <?php
                        $campanhas = retornarCampanhas(); // busca pelas campanhas disponiveis
                        while($campanha = $campanhas->fetch(PDO::FETCH_ASSOC)){

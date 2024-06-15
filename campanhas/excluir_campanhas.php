@@ -41,7 +41,7 @@
         <div class="row">
             <div class="col">
                 <label for="cliente" class="form-label">cliente da campanha</label>
-                <select class="form-select" name="cliente" readonly>
+                <select class="form-select" name="cliente" disabled>
                     <?php
                        $linhas = retornarClientes();
                        while($l = $linhas->fetch(PDO::FETCH_ASSOC)){
