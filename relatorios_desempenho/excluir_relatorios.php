@@ -21,13 +21,28 @@
         <div class="row">
             <div class="col">
                 <label for="data" class="form-label">Informe a data</label>
-                <input type="text" class="form-control"     name="data">
+                <input type="text" class="form-control"     name="data" value="<?=($dados['data']) ?>" readolny>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label for="metricas" class="form-label">Informe a métrica</label>
-                <input type="text" class="form-control"     name="metricas">
+                <input type="text" class="form-control"     name="metricas" value="<?=($dados['metricas']) ?>" readonly>
+            </div>
+        </div>
+        <!-- deve-se retornar a listagem de FK relacionada aos anuncios -->
+        <div class="row">
+            <div class="col">
+                <label for="campanha" class="form-label">Campanha do anúncio</label>
+                <select class="form-select" name="campanha"  readonly>
+                    <?php
+                       $campanhas = retornarCampanhas(); // busca pelas campanhas disponiveis
+                       while($campanha = $campanhas->fetch(PDO::FETCH_ASSOC)){
+                            $selected = $cammpanha['id'] == $dados['campanha_id'] ? "selected" : ""; // verifica se a campanha é do anuncio selecionado
+                            echo "<option value='{$campanha['id']}'$selcted>{$campanha['nome']}</option>";
+                       } 
+                    ?>
+                </select>
             </div>
         </div>
         <div class="row">

@@ -12,6 +12,7 @@
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th>Data de inicio</th>
+                <th>Cliente</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +25,7 @@
                 <td><?= $l['nome'] ?></td>
                 <td><?= $l['descricao'] ?></td>
                 <td><?= $l['data_inicio'] ?></td>
+                <td><?= $l['cliente'] ?></td>
                 <td>
                     <a href="alterar_campanhas.php?id=<?= $l['id'] ?>" class="btn btn-warning">
                         Alterar

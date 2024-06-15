@@ -19,12 +19,12 @@
         <!-- deve-se retornar a listagem de FK relacionada aos anuncios -->
         <div class="row">
             <div class="col">
-                <label for="ccampanha" class="form-label"> Selecione a campanha</label>
+                <label for="campanha" class="form-label"> Selecione a campanha</label>
                 <select class="form-select" name="campanha">
                     <?php
-                       $linhas = retornarCampanhas();
-                       while($l = $linhas->fetch(PDO::FETCH_ASSOC)){
-                        echo "<option value='{$l['id']}'>{$l['nome']}</option>";
+                       $campanhas = retornarCampanhas();
+                       while($campanha = $campanhas->fetch(PDO::FETCH_ASSOC)){
+                        echo "<option value='{$campanha['id']}'$selected>{$campanha['nome']}</option>";
                        } 
                     ?>
                 </select>
@@ -43,8 +43,9 @@
     if ($_POST){
         $nome = $_POST['nome'];
         $tipo = $_POST['tipo'];
+        $campanha_id = $_POST['campanha'];
         if($nome != "" && $tipo != ""){
-            if(inserirAnuncios($nome,$tipo,$campanha_id))
+            if(inserirAnuncios($nome, $tipo, $campanha_id))
                 echo "Registro inserido com sucesso!";
             else
                 echo "Erro ao inserir o registro!";

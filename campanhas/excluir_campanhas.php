@@ -10,14 +10,14 @@
         if (excluirCampanhas($_SESSION['id']))
             header('location: index.php');
         else
-            echo "Erro ao Excluir o Anuncio!!";
+            echo "Erro ao Excluir a Campanha!!";
     }
     $dados = consultarCampanhasId($id); //receberá todos os dados do id referido
 
 ?>
 
     <h3>Excluir a Campanha selecionada</h3>
-    <form>
+    <form action="" method="POST">
         <div class="row">
             <div class="col">
                 <label for="nome" class="form-label">Nome da campanha</label>
@@ -34,6 +34,21 @@
             <div class="col">
                 <label for="data_inicio" class="form-label">Data de início da campanha</label>
                 <input type="text" class="form-control"     name="data_inicio" value="<?= ($dados['data_inicio']) ?>" readonly>
+            </div>
+        </div>
+        
+        <!-- deve-se retornar a listagem de id clientes vinculados a tabela de campanhas -->
+        <div class="row">
+            <div class="col">
+                <label for="cliente" class="form-label">cliente da campanha</label>
+                <select class="form-select" name="cliente" readonly>
+                    <?php
+                       $linhas = retornarClientes();
+                       while($l = $linhas->fetch(PDO::FETCH_ASSOC)){
+                        echo "<option value='{$l['id']}'>{$l['nome']}</option>";
+                       } 
+                    ?>
+                </select>
             </div>
         </div>
         <div class="row">

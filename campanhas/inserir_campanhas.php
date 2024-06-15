@@ -51,8 +51,9 @@
         $nome = $_POST['nome'];
         $descricao = $_POST['descricao'];
         $data_inicio = $_POST['data_inicio'];
+        $cliente_id = $_POST['cliente'];
         if($nome != "" && $descricao != "" && $data_inicio != ""){
-            if(inserirCampanhas($nome, $descricao, $data_inicio))
+            if(inserirCampanhas($nome, $descricao, $data_inicio, $cliente_id))
                 echo "Registro inserido com sucesso!";
             else
                 echo "Erro ao inserir o registro!";

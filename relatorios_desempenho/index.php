@@ -11,6 +11,7 @@
             <tr>
                 <th>Data</th>
                 <th>Metricas</th>
+                <th>Campanha</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,7 @@
             <tr>
                 <td><?= $l['data'] ?></td>
                 <td><?= $l['metricas'] ?></td>
+                <td><?= $l['campanha'] ?></td>
                 <td>
                     <a href="alterar_relatorios.php?id=<?= $l['id'] ?>" class="btn btn-warning">
                         Alterar

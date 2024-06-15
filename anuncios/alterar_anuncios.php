@@ -10,8 +10,10 @@
     if ($_POST) {
         $nome = $_POST['nome'];
         $tipo = $_POST['tipo'];
-        if ($nome != "" && $tipo != ""){
-            if (alterarAnuncios($nome, $tipo, $_SESSION['id']))
+        $campanha_id = $_POST['campanha'];
+
+        if ($nome != "" && $tipo != "" && $campanha_id != ""){
+            if (alterarAnuncios($nome, $tipo, $campanha_id, $_SESSION['id']))
                 echo "Anuncio alterado com sucesso !!";
             else
                 echo "ERRO ao alterar Anuncio!";
@@ -45,8 +47,8 @@
                     <?php
                        $campanhas = retornarCampanhas(); // busca pelas campanhas disponiveis
                        while($campanha = $campanhas->fetch(PDO::FETCH_ASSOC)){
-                            $selected = $cammpanha['id'] == $dados['campanha_id'] ? "selected" : ""; // verifica se a campanha é do anuncio selecionado
-                            echo "<option value='{$campanha['id']}'$selcted>{$campanha['nome']}</option>";
+                            $selected = $campanha['id'] == $dados['campanha_id'] ? "selected" : ""; // verifica se a campanha é do anuncio selecionado
+                            echo "<option value='{$campanha['id']}'$selected>{$campanha['nome']}</option>";
                        } 
                     ?>
                 </select>
